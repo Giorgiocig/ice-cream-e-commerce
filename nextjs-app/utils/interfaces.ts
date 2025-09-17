@@ -1,3 +1,5 @@
+import { bestFlavor } from "./types";
+
 export interface ImageProps {
   id: number;
   documentId: string;
@@ -28,7 +30,7 @@ interface Base<
 }
 
 export interface HeroSectionProps extends Base<"blocks.hero-section"> {
-  bestFlavors: string[];
+  bestFlavor: bestFlavor[];
   cta: LinkProps;
   featuredFlavors: string[];
   featuredFlavorsTitle: string;
