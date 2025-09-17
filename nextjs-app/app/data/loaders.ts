@@ -12,7 +12,7 @@ const homePageQuery = qs.stringify({
               fields: ["url", "alternativeText"],
             },
             cta: true,
-            bestFlavor: true,
+            bestFlavor: { populate: "*" },
           },
         },
         "blocks.info-block": {
