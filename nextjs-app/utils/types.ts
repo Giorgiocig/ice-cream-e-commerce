@@ -52,3 +52,8 @@ export interface InfoBlockProps extends Base<"blocks.info-block"> {
   image: ImageProps;
   cta?: LinkProps;
 }
+
+export type bestFlavor = {
+  name: string;
+  descritpion: string;
+};
