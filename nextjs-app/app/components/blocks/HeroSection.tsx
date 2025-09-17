@@ -1,14 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ShoppingCart, Star, ChefHat } from "lucide-react";
-import heroImage from "@/assets/myIceCreamHero.jpeg";
-import Image from "next/image";
 import { HeroSectionProps } from "@/utils/interfaces";
 import { StrapiImage } from "../StrapiImage";
 
 export function HeroSection({
   image,
-  bestFlavors,
+  bestFlavor,
   cta,
   featuredFlavors,
   featuredFlavorsTitle,
@@ -123,45 +121,33 @@ export function HeroSection({
           <div className="relative">
             {/* Floating Cards */}
             <div className="grid grid-cols-2 gap-6 max-w-md mx-auto">
-              <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-pink-400 rounded-full mx-auto mb-4 flex items-center justify-center text-white font-bold text-xl">
-                    🍓
+              {bestFlavor.map((bestF, indx) => (
+                <div
+                  className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+                  key={indx}
+                >
+                  <div className="text-center">
+                    <div
+                      className={`w-16 h-16 
+                      ${bestF.name === "Strawberry" && "bg-pink-400"} 
+                      ${bestF.name === "Chocolate" && "bg-amber-600"}
+                      ${bestF.name === "Lemon" && "bg-green-400"}
+                      ${
+                        bestF.name === "Coco" && "bg-orange-200"
+                      } rounded-full mx-auto mb-4 flex items-center justify-center text-white font-bold text-xl`}
+                    >
+                      {bestF.name === "Strawberry" && "🍓"}
+                      {bestF.name === "Chocolate" && "🍫"}
+                      {bestF.name === "Lemon" && "🍋"}
+                      {bestF.name === "Coco" && "🍨"}
+                    </div>
+                    <h3 className="font-semibold text-gray-800">
+                      {bestF.name}
+                    </h3>
+                    <p className="text-sm text-gray-600">{bestF.descritpion}</p>
                   </div>
-                  <h3 className="font-semibold text-gray-800">Fragola</h3>
-                  <p className="text-sm text-gray-600">Freschissima</p>
                 </div>
-              </div>
-
-              <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 mt-8">
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-orange-200 rounded-full mx-auto mb-4 flex items-center justify-center text-gray-800 font-bold text-xl">
-                    🍨
-                  </div>
-                  <h3 className="font-semibold text-gray-800">Vaniglia</h3>
-                  <p className="text-sm text-gray-600">Classica</p>
-                </div>
-              </div>
-
-              <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 -mt-4">
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-amber-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white font-bold text-xl">
-                    🍫
-                  </div>
-                  <h3 className="font-semibold text-gray-800">Cioccolato</h3>
-                  <p className="text-sm text-gray-600">Fondente</p>
-                </div>
-              </div>
-
-              <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-green-400 rounded-full mx-auto mb-4 flex items-center justify-center text-white font-bold text-xl">
-                    🌿
-                  </div>
-                  <h3 className="font-semibold text-gray-800">Menta</h3>
-                  <p className="text-sm text-gray-600">Rinfrescante</p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
