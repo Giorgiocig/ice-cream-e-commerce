@@ -5,7 +5,7 @@ export async function getAllProducts() {
   return shopifyFetch({
     query: gql`
       query ShopName {
-        products(first: 3) {
+        products(first: 4) {
           edges {
             node {
               title
@@ -20,6 +20,7 @@ export async function getAllProducts() {
                   src
                 }
               }
+              description
             }
           }
         }
