@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { ShoppingCart, Star, ChefHat } from "lucide-react";
 import { HeroSectionProps } from "@/utils/interfaces";
 import { StrapiImage } from "../StrapiImage";
+import Link from "next/link";
 
 export function HeroSection({
   image,
@@ -96,7 +97,7 @@ export function HeroSection({
               size="lg"
               className="group border-2 border-blue-300 text-blue-600 hover:bg-blue-50"
             >
-              Scopri Menu Completo
+              <Link href="/catalog">Scopri Menu Completo</Link>
             </Button>
           </div>
 
